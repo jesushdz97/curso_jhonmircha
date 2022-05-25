@@ -26,6 +26,7 @@ const RelojHooks = () => {
       {visible && <Reloj hour={hour} />}
       <button onClick={() => setVisible(true)}>Iniciar</button>
       <button onClick={() => setVisible(false)}>Detener</button>
+      <hr />
     </>
   )
 }

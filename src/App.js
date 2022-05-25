@@ -1,5 +1,6 @@
 import './App.css';
 import AjaxClass from './components/AjaxClass';
+import AjaxHook from './components/AjaxHook';
 import Events from './components/Events';
 // import LifeCycle from './components/LifeCycle';
 import RelojHooks from './components/RelojHooks';
@@ -17,6 +18,7 @@ function App() {
       <Events />
       {/* <LifeCycle /> */}
       <RelojHooks />
+      <AjaxHook />
     </div>
   );
 }
