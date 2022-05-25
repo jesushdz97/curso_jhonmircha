@@ -2,6 +2,7 @@ import './App.css';
 import AjaxClass from './components/AjaxClass';
 import AjaxHook from './components/AjaxHook';
 import Events from './components/Events';
+import HooksPersonalizados from './components/HooksPersonalizados';
 // import LifeCycle from './components/LifeCycle';
 import RelojHooks from './components/RelojHooks';
 import RenderizadoCondicional from './components/RenderizadoCondicional';
@@ -19,6 +20,7 @@ function App() {
       {/* <LifeCycle /> */}
       <RelojHooks />
       <AjaxHook />
+      <HooksPersonalizados />
     </div>
   );
 }
