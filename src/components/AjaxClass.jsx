@@ -13,10 +13,10 @@ class AjaxClass extends Component {
   state = { pokemons: [] }
 
   componentDidMount() {
-    const URL = 'https://pokeapi.co/api/v2/pokemon'
+    // const url = 'https://pokeapi.co/api/v2/pokemon'
     const getPokemons = async () => {
       try {
-        let res = await fetch(URL)
+        let res = await fetch('')
         let { results } = await res.json()
         results.forEach(async (el) => {
           let res = await fetch(el.url)
@@ -30,7 +30,7 @@ class AjaxClass extends Component {
           this.setState({ pokemons })
         })
       } catch (error) {
-        console.error(error)
+        // console.error(error)
       }
     }
     getPokemons()
@@ -41,7 +41,7 @@ class AjaxClass extends Component {
       <>
         <h2>AJAX: Componentes de Clases </h2>
         {this.state.pokemons.length === 0 ? (
-          <h4> Cargando Pokemones... </h4>
+          <h4 style={{color: 'gray'}}> Cargando Pokemones... </h4>
         ) : (
           this.state.pokemons.map((el) => (
             <Pokemon key={el.id} name={el.name} avatar={el.avatar} />

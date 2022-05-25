@@ -10,14 +10,13 @@ const Pokemon = ({ avatar, name }) => {
 }
 
 const AjaxHook = () => {
-  const URL_FAKE = 'https://jesus.com'
-  const URL = 'https://pokeapi.co/api/v2/pokemon'
+  // const URL = 'https://pokeapi.co/api/v2/pokemon'
   const [pokemons, setPokemons] = useState([])
 
   useEffect(() => {
     const getPokemons = async () => {
       try {
-        let response = await fetch(URL_FAKE)
+        let response = await fetch('')
         let { results } = await response.json()
         results.forEach(async (el) => {
           let response = await fetch(el.url)
@@ -30,7 +29,7 @@ const AjaxHook = () => {
           setPokemons((pokemons) => [...pokemons, pokemon])
         })
       } catch (err) {
-        console.error(err)
+        // console.error(err)
       }
     }
 
