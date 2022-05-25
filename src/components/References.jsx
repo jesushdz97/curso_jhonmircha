@@ -43,6 +43,7 @@ const References = () => {
         <a href='https://www.google.com.ar'>section 4</a> <br />
         <a href='https://www.google.com.ge'>section 5</a> <br />
       </nav>
+      <hr />
     </>
   )
 }

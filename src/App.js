@@ -2,6 +2,7 @@ import './App.css';
 import AjaxClass from './components/AjaxClass';
 import AjaxHook from './components/AjaxHook';
 import Events from './components/Events';
+import Forms from './components/Forms';
 import HooksPersonalizados from './components/HooksPersonalizados';
 import References from './components/References';
 // import LifeCycle from './components/LifeCycle';
@@ -23,6 +24,7 @@ function App() {
       <AjaxHook />
       <HooksPersonalizados />
       <References />
+      <Forms />
     </div>
   );
 }
