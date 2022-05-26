@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className='App'>
       <h1> Ejericio con React </h1> <hr />
-      <CrudApp />
+      <CrudApp /> <hr />
     </div>
   )
 }

@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const initForm = { name: '', age: '' }
 
-const CrudForm = ({ createData, updateData, setDataToEdit }) => {
+const CrudForm = ({ createData, updateData, setDataToEdit, dataToEdit }) => {
   const [form, setForm] = useState(initForm)
+
+  useEffect(() => {
+    dataToEdit ? setForm(dataToEdit) : setForm(initForm)
+  }, [dataToEdit])
 
   const handleChange = (e) => {
     const { target } = e
@@ -16,19 +20,23 @@ const CrudForm = ({ createData, updateData, setDataToEdit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if ((form.name || form.age).trim().length === 0) {alert('Datos Vacios'); return}
+    if ((form.name || form.age).trim().length === 0) {
+      alert('Datos Vacios')
+      return
+    }
     !form.id ? createData(form) : updateData(form)
     handleReset()
   }
 
   const handleReset = () => {
     setForm(initForm)
-    setDataToEdit(initForm)
+    setDataToEdit(null)
   }
 
   return (
     <div>
-      <h3>Agregar</h3>
+      {!dataToEdit ? <h3>Agregar</h3> : <h3> Editar</h3>}
+      {dataToEdit && <p> Editando: {dataToEdit.name} </p>}
       <form onSubmit={handleSubmit}>
         <input
           type='text'
