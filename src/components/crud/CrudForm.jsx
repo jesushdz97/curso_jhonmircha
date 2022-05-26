@@ -34,29 +34,48 @@ const CrudForm = ({ createData, updateData, setDataToEdit, dataToEdit }) => {
   }
 
   return (
-    <div>
+    <div className='container'>
       {!dataToEdit ? <h3>Agregar</h3> : <h3> Editar</h3>}
       {dataToEdit && <p> Editando: {dataToEdit.name} </p>}
       <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          name='name'
-          placeholder='Nombre'
-          value={form.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type='number'
-          name='age'
-          placeholder='Edad'
-          value={form.age}
-          min={0}
-          onChange={handleChange}
-          required
-        />
-        <input type='submit' value='Enviar' />
-        <input type='submit' value='Limpiar' onClick={handleReset} />
+        <div className='row align-items-center'>
+          <div className='col-auto'>
+            <input
+              type='text'
+              name='name'
+              placeholder='Nombre'
+              value={form.name}
+              onChange={handleChange}
+              className='form-control'
+              required
+            />
+          </div>
+          <div className='col-auto'>
+            <input
+              type='number'
+              name='age'
+              placeholder='Edad'
+              value={form.age}
+              min={0}
+              onChange={handleChange}
+              className='form-control'
+              required
+            />
+          </div>
+          <div className='col-auto'>
+            <input
+              type='submit'
+              value='Enviar'
+              className='btn btn-outline-dark btn-sm mx-1'
+            />
+            <input
+              type='submit'
+              value='Limpiar'
+              onClick={handleReset}
+              className='btn btn-outline-dark btn-sm mx-1'
+            />
+          </div>
+        </div>
       </form>
     </div>
   )
