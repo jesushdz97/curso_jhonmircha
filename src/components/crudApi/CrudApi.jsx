@@ -1,37 +1,9 @@
 import React, { useState } from 'react'
-import CrudForm from './CrudForm'
-import CrudTable from './CrudTable'
+import CrudForm from '../crud/CrudForm'
+import CrudTable from '../crud/CrudTable'
 
-const initialDB = [
-  {
-    id: 0,
-    name: 'Jesus Hernandez',
-    age: 67,
-  },
-  {
-    id: 1,
-    name: 'Rosmeri Simanca',
-    age: 47,
-  },
-  {
-    id: 2,
-    name: 'Jesus Hernandez Simanca',
-    age: 24,
-  },
-  {
-    id: 3,
-    name: 'Angela Hernandez Simanca',
-    age: 23,
-  },
-  {
-    id: 4,
-    name: 'Salma Hernandez Simanca',
-    age: 20,
-  },
-]
-
-const CrudApp = () => {
-  const [db, setDb] = useState(initialDB)
+const CrudApi = () => {
+  const [db, setDb] = useState([])
   const [dataToEdit, setDataToEdit] = useState(null)
 
   const createData = (data) => {
@@ -51,8 +23,8 @@ const CrudApp = () => {
   }
 
   return (
-    <div style={{backgroundColor: 'lightgray'}}>
-      <h2>Crud App</h2>
+    <>
+      <h2>Crud API: JSON SERVER </h2>
       <CrudForm
         createData={createData}
         updateData={updateData}
@@ -64,8 +36,8 @@ const CrudApp = () => {
         setDataToEdit={setDataToEdit}
         deleteData={deleteData}
       />
-    </div>
+    </>
   )
 }
 
-export default CrudApp
+export default CrudApi

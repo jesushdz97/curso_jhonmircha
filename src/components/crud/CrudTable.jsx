@@ -9,7 +9,6 @@ const styles = {
   flexDirection: 'column',
 }
 
-
 const CrudTable = ({ data, setDataToEdit, deleteData }) => {
   return (
     <div style={styles}>
@@ -24,7 +23,11 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
         </thead>
         <tbody>
           {data.length === 0 ? (
-            <td colSpan={3} style={{color: 'gray'}} > No hay datos </td>
+            <tr>
+              <td colSpan={3} style={{ color: 'gray' }}>
+                No hay datos
+              </td>
+            </tr>
           ) : (
             data.map((el) => (
               <CrudTableRow
