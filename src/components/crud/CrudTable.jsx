@@ -22,7 +22,7 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
           </tr>
         </thead>
         <tbody>
-          {data > 0 ? (
+          {data.length > 0 ? (
             data.map((el) => (
               <CrudTableRow
                 key={el.id}
