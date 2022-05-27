@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { helpHttp } from '../../helpers/helpHttp'
 import CrudForm from '../crud/CrudForm'
 import CrudTable from '../crud/CrudTable'
 
 const CrudApi = () => {
   const [db, setDb] = useState([])
   const [dataToEdit, setDataToEdit] = useState(null)
+
+  let api = helpHttp()
+  let url = 'http://localhost:5000/family'
+
+  useEffect(() => {
+    api.get(url).then((res) => !res.err && setDb(res))
+  }, [])
 
   const createData = (data) => {
     data.id = db.length
