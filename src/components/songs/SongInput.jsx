@@ -13,6 +13,7 @@ const SongInput = ({ name, label, value, handleChange }) => {
         value={value}
         onChange={handleChange}
         className='form-control'
+        required
       />
     </>
   )

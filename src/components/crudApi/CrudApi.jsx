@@ -28,7 +28,7 @@ const CrudApi = () => {
         }
         setLoading(false)
       })
-  }, [])
+  }, [url])
 
   const createData = (data) => {
     data.id = db.length

@@ -9,16 +9,16 @@ const SearchSongs = () => {
   const [bio, setBio] = useState(null)
   const [loading, setLoading] = useState(null)
 
-  const handleSearch = (data) => console.log(data)
+  const handleSearch = (data) => setSearch(data)
 
   return (
     <div className='container border border-warning p-2'>
       <div className='bg-warning text-white rounded-circle'>
         <h2> Buscador de Canciones </h2>
       </div>
-      {loading && <Loader />}      
+      {loading && <Loader />}
       <SongFom handleSearch={handleSearch} />
-      <SongDetails />
+      <SongDetails search={search} lyric={lyric} bio={bio} />
     </div>
   )
 }

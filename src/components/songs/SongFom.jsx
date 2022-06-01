@@ -3,6 +3,16 @@ import SongInput from './SongInput'
 
 const initialForm = { artist: '', song: '' }
 
+/**
+ * Esta función podría ser un helper
+ * @param {*} obj
+ */
+const trimObj = (obj) => {
+  for (const key in obj) {
+    obj[key] = obj[key].trim()
+  }
+}
+
 const SongFom = ({ handleSearch }) => {
   const [form, setForm] = useState(initialForm)
 
@@ -17,13 +27,18 @@ const SongFom = ({ handleSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if ((form.artist || form.song).trim().length === 0)
-      console.log('algun esta vacio')
+    trimObj(form)
+
+    if ((form.artist || form.song).trim().length === 0) {
+      alert('algun campo está vacio')
+      return
+    }
+
+    handleSearch(form)
+    handleReset()
   }
 
-  const handleReset = () => {
-    setForm(initialForm)
-  }
+  const handleReset = () => setForm(initialForm)
 
   return (
     <div className='border border-warning p-2'>
