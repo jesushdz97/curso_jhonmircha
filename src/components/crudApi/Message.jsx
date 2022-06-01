@@ -8,9 +8,12 @@ const Message = ({ message, bgColor }) => {
     color: '#FFF',
     fontWeight: 'bold',
     backgroundColor: bgColor,
+    minHeight: '6rem',
   }
   return (
-    <div style={styles}>
+    <div
+      className='d-flex align-items-center justify-content-center m-2 rounded'
+      style={styles}>
       <p>{message}</p>
     </div>
   )

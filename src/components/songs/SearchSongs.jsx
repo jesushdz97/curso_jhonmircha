@@ -20,18 +20,16 @@ const SearchSongs = () => {
 
       let urlArtist = `https://www.theaudiodb.com/api/v1/json/2/search.php?s=${artist}`
       let urlSong = `https://api.lyrics.ovh/v1/${artist}/${song}`
-      let hola = 'https://api.lyrics.ovh/v1/Coldplay/Adventure of a Lifetime'
 
       setLoading(true)
 
-      const resArtist = await helpHttp().get(urlArtist)
-      const resSong = await helpHttp().get(hola)
+      const [resArtist, resSong] = await Promise.all([
+        helpHttp().get(urlArtist),
+        helpHttp().get(urlSong),
+      ])
 
-      console.log(resArtist)
-      console.log(resSong)
-
-      // const res = Promise.all([helpHttp().get(urlArtist), helpHttp().get(urlSong)])
-      // res.then((res) => console.log(res))
+      setBio(resArtist)
+      setLyric(resSong)
       setLoading(false)
     }
     fetchData()
@@ -44,7 +42,9 @@ const SearchSongs = () => {
       </div>
       {loading && <Loader />}
       <SongFom handleSearch={handleSearch} />
-      <SongDetails search={search} lyric={lyric} bio={bio} />
+      {search && !loading && (
+        <SongDetails search={search} lyric={lyric} bio={bio} />
+      )}
     </div>
   )
 }
