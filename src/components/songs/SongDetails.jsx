@@ -1,7 +1,7 @@
 import React from 'react'
 import SongArtist from './SongArtist'
 import SongLyrics from './SongLyrics'
-import Message from '../crudApi/Message'
+import Message from '../crud-api/Message'
 
 const SongDetails = ({ search, lyric, bio }) => {
   if (!lyric || !bio) return null

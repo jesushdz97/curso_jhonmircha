@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { helpHttp } from '../../helpers/helpHttp'
-import Loader from '../crudApi/Loader'
+import Loader from '../crud-api/Loader'
 import SongDetails from './SongDetails'
 import SongFom from './SongFom'
 
