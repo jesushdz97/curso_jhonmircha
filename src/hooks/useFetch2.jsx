@@ -13,7 +13,7 @@ export const useFetch2 = (url) => {
       setLoading(true)
 
       try {
-        const res = await fetch(url)
+        const res = await fetch(url, { signal })
 
         if (!res.ok) {
           let error = {
@@ -41,7 +41,10 @@ export const useFetch2 = (url) => {
     }
 
     fetchData()
-    return () => abortController.abort()
+    return () => {
+      abortController.abort()
+      setData()
+    }
   }, [url])
 
   return { data, error, loading }

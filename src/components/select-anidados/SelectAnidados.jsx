@@ -6,7 +6,10 @@ const SelectAnidados = () => {
   const [town, setTown] = useState()
   const [suburb, setSuburb] = useState()
 
-  let token = 'd81a7ac7-976d-4e1e-b7d3-b1979d791b6c'
+  let token = 'f1e84648-66ea-40f5-b9ab-b32dc4e3c544'
+  let urlEstado = `https://api.copomex.com/query/get_estados?token=${token}`
+  let urlMunicipio = `https://api.copomex.com/query/get_municipio_por_estado/${state}?token=${token}`
+  let urlColonia = `https://api.copomex.com/query/get_colonia_por_municipio/${town}?token=${token}`
 
   return (
     <div className='container select-anidados'>
@@ -14,25 +17,30 @@ const SelectAnidados = () => {
       <h3> México </h3>
 
       <SelectList
-        label='Seleccionar Estado'
+        key={1}
         handleChange={(e) => setState(e.target.value)}
         name='estado'
-        url={`https://api.copomex.com/query/get_estados?token=${token}`}
+        id='estados'
+        url={urlEstado}
       />
 
-      {town && (
+      {state && (
         <SelectList
-          label='Seleccionar Municipio'
+          key={2}
           handleChange={(e) => setTown(e.target.value)}
           name='municipios'
+          id='municipios'
+          url={urlMunicipio}
         />
       )}
 
-      {suburb && (
+      {town && (
         <SelectList
-          label='Seleccionar Colonia'
+          key={3}
           handleChange={(e) => setSuburb(e.target.value)}
           name='colonia'
+          id='colonias'
+          url={urlColonia}
         />
       )}
 
