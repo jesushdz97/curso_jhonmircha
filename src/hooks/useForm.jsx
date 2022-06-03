@@ -6,9 +6,8 @@ export const useForm = (initialForm, validateForm) => {
   const [loading, setLoading] = useState()
   const [response, setResponse] = useState(null)
 
-  const handleChange = (e) => {
-    const { target } = e
-    const { name, value } = target
+  const handleChange = (e) => {  
+    const { name, value } = e.target
 
     setForm({
       ...form,
@@ -16,7 +15,10 @@ export const useForm = (initialForm, validateForm) => {
     })
   }
 
-  const handleBlur = (e) => {}
+  const handleBlur = (e) => {
+    // handleChange(e)
+    setErrors(validateForm(form))
+  }
   const handleSubmit = (e) => {}
 
   return {

@@ -3,7 +3,7 @@ import { capitalize } from '../../helpers/capitalize'
 
 const ContactInput = ({ name, type, form, handleChange, handleBlur }) => {
   let label = capitalize(name)
-  console.log(label)
+
   return (
     <div className='form-floating m-2'>
       <input
@@ -17,9 +17,7 @@ const ContactInput = ({ name, type, form, handleChange, handleBlur }) => {
         className='form-control'
         required
       />
-      <label htmlFor='name'>
-        {label}
-      </label>
+      <label htmlFor='name'>{label}</label>
     </div>
   )
 }

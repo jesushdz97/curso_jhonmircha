@@ -8,7 +8,10 @@ const initialForm = {
   asunto: '',
   comentario: '',
 }
-const validationsForm = (form) => {}
+const validationsForm = (form) => {
+  let errors = {}
+  return errors
+}
 
 const ContactForm = () => {
   const {
