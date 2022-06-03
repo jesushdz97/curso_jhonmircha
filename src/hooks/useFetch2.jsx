@@ -41,10 +41,7 @@ export const useFetch2 = (url) => {
     }
 
     fetchData()
-    return () => {
-      abortController.abort()
-      setData()
-    }
+    return () => abortController.abort()
   }, [url])
 
   return { data, error, loading }
