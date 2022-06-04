@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import ContactInput from './ContactInput'
+import ErrorInput from './ErrorInput'
 
 const initialForm = {
   nombre: '',
@@ -8,8 +9,12 @@ const initialForm = {
   asunto: '',
   comentario: '',
 }
-const validationsForm = (form) => {
+
+const validateForm = (form) => {
   let errors = {}
+
+  if (!form.nombre) errors.nombre = "El campo 'nombre' es requerido"
+
   return errors
 }
 
@@ -22,7 +27,7 @@ const ContactForm = () => {
     handleChange,
     handleBlur,
     handleSubmit,
-  } = useForm(initialForm, validationsForm)
+  } = useForm(initialForm, validateForm)
 
   return (
     <>
@@ -40,6 +45,7 @@ const ContactForm = () => {
             handleBlur={handleBlur}
             handleChange={handleChange}
           />
+          {errors.nombre && <ErrorInput error={errors.nombre} />}
           <ContactInput
             name='email'
             type='email'
@@ -47,6 +53,7 @@ const ContactForm = () => {
             handleBlur={handleBlur}
             handleChange={handleChange}
           />
+          {errors.email && <ErrorInput error={errors.email} />}
           <ContactInput
             name='asunto'
             type='text'
@@ -54,6 +61,7 @@ const ContactForm = () => {
             handleBlur={handleBlur}
             handleChange={handleChange}
           />
+          {errors.asunto && <ErrorInput error={errors.asunto} />}
           <div className='form-floating m-2'>
             <textarea
               name='comentario'
@@ -63,10 +71,10 @@ const ContactForm = () => {
               onBlur={handleBlur}
               onChange={handleChange}
             />
-            <label htmlFor='comentario'>
-              Comentarios
-            </label>
+            <label htmlFor='comentario'>Comentarios</label>
           </div>
+          {errors.comentario && <ErrorInput error={errors.comentario} />}
+
           <button className='mx-auto btn btn-warning text-white mb-2'>
             Enviar
           </button>

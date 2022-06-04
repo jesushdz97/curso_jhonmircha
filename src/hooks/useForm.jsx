@@ -6,7 +6,7 @@ export const useForm = (initialForm, validateForm) => {
   const [loading, setLoading] = useState()
   const [response, setResponse] = useState(null)
 
-  const handleChange = (e) => {  
+  const handleChange = (e) => {
     const { name, value } = e.target
 
     setForm({
@@ -19,7 +19,9 @@ export const useForm = (initialForm, validateForm) => {
     // handleChange(e)
     setErrors(validateForm(form))
   }
-  const handleSubmit = (e) => {}
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   return {
     form,
