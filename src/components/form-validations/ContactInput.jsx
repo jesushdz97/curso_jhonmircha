@@ -1,9 +1,13 @@
 import React from 'react'
-import { capitalize } from '../../helpers/capitalize'
 
-const ContactInput = ({ name, type, form, handleChange, handleBlur }) => {
-  let label = capitalize(name)
-
+const ContactInput = ({
+  name,
+  label,
+  type,
+  form,
+  handleChange,
+  handleBlur,
+}) => {
   return (
     <div className='form-floating m-2'>
       <input
@@ -11,13 +15,13 @@ const ContactInput = ({ name, type, form, handleChange, handleBlur }) => {
         type={type}
         name={name}
         id={name}
-        value={form.name}
+        value={form[name]}
         onBlur={handleBlur}
         onChange={handleChange}
         className='form-control'
         required
       />
-      <label htmlFor='name'>{label}</label>
+      <label htmlFor={name}>{label}</label>
     </div>
   )
 }

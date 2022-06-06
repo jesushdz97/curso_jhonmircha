@@ -2,20 +2,13 @@ import React from 'react'
 import { useForm } from '../../hooks/useForm'
 import ContactInput from './ContactInput'
 import ErrorInput from './ErrorInput'
+import { validateForm } from './ValditeForm'
 
 const initialForm = {
-  nombre: '',
+  name: '',
   email: '',
-  asunto: '',
-  comentario: '',
-}
-
-const validateForm = (form) => {
-  let errors = {}
-
-  if (!form.nombre) errors.nombre = "El campo 'nombre' es requerido"
-
-  return errors
+  subject: '',
+  comments: '',
 }
 
 const ContactForm = () => {
@@ -39,14 +32,16 @@ const ContactForm = () => {
       <div className='container border-start border-end border-bottom form-body p-1'>
         <form onSubmit={handleSubmit}>
           <ContactInput
-            name='nombre'
+            label='Nombre'
+            name='name'
             type='text'
             form={form}
             handleBlur={handleBlur}
             handleChange={handleChange}
           />
-          {errors.nombre && <ErrorInput error={errors.nombre} />}
+          {errors.name && <ErrorInput error={errors.name} />}
           <ContactInput
+            label='Email'
             name='email'
             type='email'
             form={form}
@@ -55,27 +50,29 @@ const ContactForm = () => {
           />
           {errors.email && <ErrorInput error={errors.email} />}
           <ContactInput
-            name='asunto'
+            label='Asunto'
+            name='subject'
             type='text'
             form={form}
             handleBlur={handleBlur}
             handleChange={handleChange}
           />
-          {errors.asunto && <ErrorInput error={errors.asunto} />}
+          {errors.subject && <ErrorInput error={errors.subject} />}
           <div className='form-floating m-2'>
             <textarea
-              name='comentario'
+              name='comments'
               cols='50'
               rows='5'
               className='form-control'
               onBlur={handleBlur}
               onChange={handleChange}
             />
-            <label htmlFor='comentario'>Comentarios</label>
+            <label htmlFor='comments'>Comentarios</label>
           </div>
-          {errors.comentario && <ErrorInput error={errors.comentario} />}
-
-          <button className='mx-auto btn btn-warning text-white mb-2'>
+          {errors.comments && <ErrorInput error={errors.comments} />}
+        
+          <button
+            className={`mx-auto btn btn-warning text-white mb-2 ${errors.keys() ? 'disabled' : ''}`}> {/* VER */}
             Enviar
           </button>
         </form>
