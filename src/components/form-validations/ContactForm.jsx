@@ -1,5 +1,7 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm'
+import Loader from '../crud-api/Loader'
+import Message from '../crud-api/Message'
 import ContactInput from './ContactInput'
 import ErrorInput from './ErrorInput'
 import { validateForm } from './ValditeForm'
@@ -64,15 +66,17 @@ const ContactForm = () => {
               cols='50'
               rows='5'
               className='form-control'
+              value={form.comments}
               onBlur={handleBlur}
               onChange={handleChange}
             />
             <label htmlFor='comments'>Comentarios</label>
           </div>
           {errors.comments && <ErrorInput error={errors.comments} />}
-        
-          <button
-            className={`mx-auto btn btn-warning text-white mb-2 ${errors.keys() ? 'disabled' : ''}`}> {/* VER */}
+          {loading && <Loader />} 
+          {response && <Message message={response} bgColor={'#198754'} />}
+          <br />
+          <button className={`mx-auto btn btn-warning text-white mb-2`}>
             Enviar
           </button>
         </form>

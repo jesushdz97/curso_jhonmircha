@@ -17,8 +17,7 @@ const SongFom = ({ handleSearch }) => {
   const [form, setForm] = useState(initialForm)
 
   const handleChange = (e) => {
-    const { target } = e
-    const { name, value } = target
+    const { name, value } = e.target
     setForm({
       ...form,
       [name]: value,
