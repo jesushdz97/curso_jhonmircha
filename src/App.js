@@ -5,12 +5,16 @@ import CrudApi from './components/crud-api/CrudApi'
 import SelectAnidados from './components/select-anidados/SelectAnidados'
 import SearchSongs from './components/songs/SearchSongs'
 import ContactForm from './components/form-validations/ContactForm'
+import Modals from './components/modals/Modals'
 
 const App = () => {
   return (
     <div className='App'>
       <h1> Ejericio con React </h1> <hr />
-      <ContactForm /> 
+      <Modals />
+      <hr />
+      <hr />
+      <ContactForm />
       <hr />
       <hr />
       <SelectAnidados />
