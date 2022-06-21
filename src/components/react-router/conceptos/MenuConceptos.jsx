@@ -33,6 +33,11 @@ const MenuConceptos = () => {
             404
           </NavLink>
         </li>
+        <li>
+          <span> Parametros: </span>
+          <Link to='usuario/jonmircha'> Jon Mircha </Link>
+          <Link to='usuario/jesus'> Jesus </Link>
+        </li>
       </ol>
     </nav>
   )
