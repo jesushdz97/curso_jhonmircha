@@ -10,6 +10,17 @@ html {
   box-sizing: inherit;
 }
 
+a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: #000;
+}
+
 hr {
   margin: 2rem auto;
+}
+
+a.active {
+  font-weight: bold;
+  color: red;
 }

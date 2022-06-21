@@ -3,7 +3,7 @@ import React from 'react'
 const Acerca = () => {
   return (
     <div>
-      <h6>Curso de React de Jhon Mircha</h6>
+      <h5>Curso de React de Jhon Mircha</h5>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus
         expedita nulla repudiandae rem est vitae, distinctio non. Sit
