@@ -3,12 +3,14 @@ import ContactForm from '../form-validations/ContactForm'
 import SearchSongs from '../songs/SearchSongs'
 import useModal from '../../hooks/useModal'
 import Modal from './Modal'
+import ModalPortal from './ModalPortal'
 
 const Modals = () => {
   const [isOpenModal1, openModal1, closeModal1] = useModal(false)
   const [isOpenModal2, openModal2, closeModal2] = useModal(false)
   const [isOpenForm, openForm, closeForm] = useModal(false) // Abriendo el formulario de contact
   const [isOpenSong, openSong, closeSong] = useModal(false) // Abriendo el formulario song
+  const [isOpenModalP, openModalP, closeModalP] = useModal(false) // ModalPortal
 
   return (
     <>
@@ -34,8 +36,10 @@ const Modals = () => {
       </Modal>
 
       {/** Formulario anterior en un modal  */}
-      <button className='btn btn-warning text-white mt-3 mx-1' onClick={openForm}>
-          ContactForm
+      <button
+        className='btn btn-warning text-white mt-3 mx-1'
+        onClick={openForm}>
+        ContactForm
       </button>
       <Modal isOpenModal={isOpenForm} closeModal={closeForm}>
         <ContactForm />
@@ -43,11 +47,23 @@ const Modals = () => {
 
       {/** Formulario anterior en un modal  */}
       <button className='btn btn-primary mt-3 mx-1' onClick={openSong}>
-          Song Search
+        Song Search
       </button>
       <Modal isOpenModal={isOpenSong} closeModal={closeSong}>
         <SearchSongs />
       </Modal>
+
+      <button className='btn btn-secondary mt-3 mx-1' onClick={openModalP}>
+        Modal Portal
+      </button>
+      <ModalPortal isOpenModal={isOpenModalP} closeModal={closeModalP}>
+        <br /> <br />
+        <p>
+          Este es el contenido del portal modal: Clase 52. Curso de React de
+          Jhon Mircha.
+        </p>
+        <img src='https://placeimg.com/400/400/tech' alt='img_tech.jpgf' />
+      </ModalPortal>
     </>
   )
 }
