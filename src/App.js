@@ -4,7 +4,7 @@ import Conceptos from './components/react-router/conceptos/Conceptos'
 
 const App = () => {
   return (
-    <div>
+    <div className='container'>
       <h1> React Router </h1>
       <a
         href='https://reactrouter.com/web/guides/quick-start'
