@@ -1,5 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom'
 import MenuConceptos from './MenuConceptos'
 import Acerca from './pages/Acerca'
 import Contactos from './pages/Contactos'
@@ -21,6 +26,8 @@ const Conceptos = () => {
           <Route path='/acerca' element={<Acerca />} />
           <Route path='/usuario/:username/' element={<Usuario />} />
           <Route path='/productos' element={<Productos />} />
+          <Route path='/about' element={<><Navigate to='/acerca' /></>} /> {/** Redirección */}
+          <Route path='contact' element={<><Navigate to='/contacto' /></>} /> {/** Redirección */}
           <Route path='*' element={<Error404 />} />
         </Routes>
       </Router>

@@ -35,7 +35,7 @@ const Productos = () => {
     <div>
       <h5> Productos </h5>
       <p>
-        Mostrando productos del <b> {start /** 1 */} </b> al{' '}
+        Mostrando productos del <b> {start /** 1 */} </b> al
         <b> {end /** 20 */} </b>
       </p>
 
