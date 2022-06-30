@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom'
+import { Routes, Route, Navigate, HashRouter } from 'react-router-dom'
 import MenuConceptos from './MenuConceptos'
 import Acerca from './pages/Acerca'
 import Contactos from './pages/Contactos'
@@ -22,10 +17,9 @@ import PrivateRoute from '../PrivateRoute'
 const Conceptos = () => {
   return (
     <div>
-      <h2> Conceptos Basicos </h2>
-
-      <Router>
-        <MenuConceptos /> {/** Entra dentro del Router porque usa <Link> */}
+      <h2> Hash Router </h2>
+      <HashRouter>
+        <MenuConceptos />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/contacto' element={<Contactos />} />
@@ -69,7 +63,7 @@ const Conceptos = () => {
 
           <Route path='*' element={<Error404 />} />
         </Routes>
-      </Router>
+      </HashRouter>
     </div>
   )
 }
