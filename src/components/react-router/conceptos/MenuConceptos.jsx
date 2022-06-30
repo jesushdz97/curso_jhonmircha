@@ -52,6 +52,11 @@ const MenuConceptos = () => {
             <span>Rutas anidadas: </span>
             <NavLink to='/react' activeclassname='active'> React </NavLink>
           </li>
+          <li>
+            <span> Rutas Privadas: </span>
+            <Link to='/login'> Login </Link>
+            <Link to='/dashboard'> Dashboard </Link>
+          </li>
         </ol>
       </nav>
       <hr />
