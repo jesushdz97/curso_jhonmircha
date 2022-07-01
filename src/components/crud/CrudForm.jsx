@@ -34,12 +34,12 @@ const CrudForm = ({ createData, updateData, setDataToEdit, dataToEdit }) => {
   }
 
   return (
-    <div className='container'>
-      {!dataToEdit ? <h3>Agregar</h3> : <h3> Editar</h3>}
+    <div className='container border p-3'>
+      {!dataToEdit ? <h3>AGREGAR</h3> : <h3> EDITANDO...</h3>}
       {dataToEdit && <p> Editando: {dataToEdit.name} </p>}
       <form onSubmit={handleSubmit}>
-        <div className='row align-items-center'>
-          <div className='col-auto'>
+        <div className='row'>
+          <div className='col'>
             <input
               type='text'
               name='name'
@@ -50,7 +50,7 @@ const CrudForm = ({ createData, updateData, setDataToEdit, dataToEdit }) => {
               required
             />
           </div>
-          <div className='col-auto'>
+          <div className='col'>
             <input
               type='number'
               name='age'
@@ -62,10 +62,10 @@ const CrudForm = ({ createData, updateData, setDataToEdit, dataToEdit }) => {
               required
             />
           </div>
-          <div className='col-auto'>
+          <div className='col'>
             <input
               type='submit'
-              value='Enviar'
+              value={dataToEdit ? 'Editar' : 'Enviar'}
               className='btn btn-outline-dark btn-sm mx-1'
             />
             <input

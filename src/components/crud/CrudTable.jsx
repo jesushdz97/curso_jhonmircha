@@ -13,7 +13,7 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
   return (
     <div style={styles} className='container border p-2'>
       <h3 className='text-uppercase border-bottom'>Tabla de Datos</h3>
-      <table className='table table-sriped'>
+      <table className='table table-striped text-center'>
         <thead>
           <tr>
             <th>Nombre</th>

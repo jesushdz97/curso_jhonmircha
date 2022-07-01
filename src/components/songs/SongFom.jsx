@@ -40,7 +40,7 @@ const SongFom = ({ handleSearch }) => {
   const handleReset = () => setForm(initialForm)
 
   return (
-    <div className='border border-warning p-2'>
+    <div className='border border-warning text-center p-2'>
       <h5 className='border-bottom border-warning pb-2'>
         Formulario de Canciones
       </h5>

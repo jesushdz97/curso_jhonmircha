@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.css'
+import CrudApi from './components/crud-api/CrudApi'
 import Conceptos from './components/react-router/conceptos/Conceptos'
+import SearchSongs from './components/songs/SearchSongs'
 
 const App = () => {
   return (
@@ -11,7 +13,10 @@ const App = () => {
         target={'_blank'}
         rel='noreferrer'>
         Documentación
-      </a> <hr />
+      </a>{' '}
+      <hr />
+      <CrudApi /> <hr />
+      <SearchSongs /> <hr />
       <Conceptos />
     </div>
   )

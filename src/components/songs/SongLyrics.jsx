@@ -2,10 +2,9 @@ import React from 'react'
 
 const SongLyrics = ({ lyric, title }) => {
   return (
-    <div>
+    <div className='container'>
       <h5 className='text-uppercase'> {`Canción: ${title}`} </h5>
-      <p style={{whiteSpace: 'pre-wrap'}}>{lyric.lyrics}</p>
-      
+      <p style={{whiteSpace: 'pre-wrap'}}>{lyric.lyrics}</p>      
     </div>
   )
 }

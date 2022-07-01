@@ -37,8 +37,8 @@ const SearchSongs = () => {
 
   return (
     <div className='container border border-warning p-2'>
-      <div className='bg-warning text-white rounded-circle'>
-        <h2> Buscador de Canciones </h2>
+      <div className='bg-warning text-white rounded-circle p-1'>
+        <h2 className='text-center'> Buscador de Canciones </h2>
       </div>
       {loading && <Loader />}
       <SongFom handleSearch={handleSearch} />

@@ -78,8 +78,8 @@ const CrudApi = () => {
   }
 
   return (
-    <>
-      <h2>Crud API: JSON SERVER </h2>
+    <div className='container'>
+      <h2 className='text-center fw-bold'>Crud API: JSON SERVER </h2>
       <CrudForm
         createData={createData}
         updateData={updateData}
@@ -100,7 +100,7 @@ const CrudApi = () => {
           deleteData={deleteData}
         />
       )}
-    </>
+    </div>
   )
 }
 
