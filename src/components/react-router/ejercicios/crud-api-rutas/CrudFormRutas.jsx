@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const initForm = { name: '', age: '' }
 
 const CrudForm = ({ createData, updateData, setDataToEdit, dataToEdit }) => {
   const [form, setForm] = useState(initForm)
+  let navigate = useNavigate()
 
   useEffect(() => {
     dataToEdit ? setForm(dataToEdit) : setForm(initForm)
@@ -24,7 +26,10 @@ const CrudForm = ({ createData, updateData, setDataToEdit, dataToEdit }) => {
       alert('Datos Vacios')
       return
     }
+
     !form.id ? createData(form) : updateData(form)
+
+    navigate('/')
     handleReset()
   }
 

@@ -28,8 +28,7 @@ const SelectList = ({ name, id, url, handleChange }) => {
           <option value=''> Seleccionar {label} </option>
           {options.map((el, index) => (
             <option key={index} value={el}>
-              {' '}
-              {el}{' '}
+              {el}
             </option>
           ))}
         </select>

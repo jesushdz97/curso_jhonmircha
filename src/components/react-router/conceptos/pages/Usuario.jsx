@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 const Usuario = () => {
   let params = useParams()
   let { username } = useParams()
-  console.log(params)
+  console.log(params) // PARAMS
   return (
     <div>
       <h3>Perfil del Usuario </h3>
