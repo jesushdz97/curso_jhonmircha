@@ -6,13 +6,14 @@ import Loader from '../../../crud-api/Loader'
 import SongDetailsRutas from './SongDetailsRutas'
 import SongFormRutas from './SongFormRutas'
 
+let mySongsInit = JSON.parse(localStorage.getItem('mySongs')) || []
+
 const SongSearchRutas = () => {
   const [search, setSearch] = useState(null)
   const [lyric, setLyric] = useState(null)
   const [bio, setBio] = useState(null)
   const [loading, setLoading] = useState(null)
-
-  const handleSearch = (data) => setSearch(data)
+  const [mySongs, setMySongs] = useState(mySongsInit)
 
   useEffect(() => {
     if (search === null) return
@@ -35,7 +36,18 @@ const SongSearchRutas = () => {
       setLoading(false)
     }
     fetchData()
-  }, [search])
+    localStorage.setItem('mySongs', JSON.stringify(mySongs))
+  }, [search, mySongs])
+
+  const handleSearch = (data) => setSearch(data)
+
+  /** GUARDAR CANCION */
+  const handleSaveSong = () => {
+    alert('GUARDANDO CANCIÓN')
+  }
+
+  /** ELIMINAR CANCION */
+  const handleDeleteSong = (id) => {}
 
   return (
     <div className='container border border-warning p-2'>
@@ -50,14 +62,20 @@ const SongSearchRutas = () => {
         </header>
         {loading && <Loader />}
         <Routes>
-          <Route index element={<Navigate to={'canciones'} />} />
+          <Route index element={<Navigate to='canciones' />} />
+
           <Route path='canciones'>
             <Route
               index
               element={
                 <>
-                  <SongFormRutas handleSearch={handleSearch} />
-                  <h2 className='text-center'> TABLA DE CANCIONES </h2>
+                  <SongFormRutas
+                    handleSearch={handleSearch}
+                    handleSaveSong={handleSaveSong}
+                  />
+                  <h2 className='text-center text-danger'>
+                    TABLA DE CANCIONES
+                  </h2>
                   {search && !loading && (
                     <SongDetailsRutas search={search} lyric={lyric} bio={bio} />
                   )}

@@ -13,8 +13,9 @@ const trimObj = (obj) => {
   }
 }
 
-const SongFormRutas = ({ handleSearch }) => {
+const SongFormRutas = ({ handleSearch, handleSaveSong }) => {
   const [form, setForm] = useState(initialForm)
+  const [isDisabled, setIsDisabled] = useState(true)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -30,11 +31,14 @@ const SongFormRutas = ({ handleSearch }) => {
 
     if ((form.artist || form.song).trim().length === 0) {
       alert('algun campo está vacio')
+      setIsDisabled(true)
       return
     }
 
     handleSearch(form)
-    handleReset()
+    // handleReset()
+    setForm(initialForm)
+    setIsDisabled(false)
   }
 
   const handleReset = () => setForm(initialForm)
@@ -65,12 +69,20 @@ const SongFormRutas = ({ handleSearch }) => {
             </div>
           </div>
           <div>
-            <button className='btn btn-warning mt-2 w-25 mx-1'>Enviar</button>
+            <button className='btn btn-warning w-25 mt-2 mx-1'>Enviar</button>
             <button
               className='btn btn-warning mt-2 w-25 mx-1'
               onClick={handleReset}>
               Limpiar
             </button>
+
+            <input
+              type='submit'
+              value='Agregar Canción'
+              onClick={handleSaveSong}
+              className='btn btn-primary mt-2 mx-1'
+              disabled={isDisabled}
+            />
           </div>
         </form>
       </div>
