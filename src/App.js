@@ -3,6 +3,7 @@ import './App.css'
 import CrudApiRutas from './components/react-router/ejercicios/crud-api-rutas/CrudApiRutas'
 import Conceptos from './components/react-router/conceptos/Conceptos'
 import SearchSongs from './components/songs/SearchSongs'
+import SongSearchRutas from './components/react-router/ejercicios/songs-rutas/SongSearchRutas'
 
 const App = () => {
   return (
@@ -15,8 +16,8 @@ const App = () => {
         Documentación
       </a>
       <hr />
-      <CrudApiRutas />
-      {/* <SearchSongs /> <hr /> */}
+      {/* <CrudApiRutas /> */}
+      <SongSearchRutas /> <hr />
       {/* <Conceptos /> */}
     </div>
   )

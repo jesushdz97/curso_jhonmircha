@@ -96,7 +96,8 @@ const CrudApi = () => {
         </nav>
 
         <Routes>
-          <Route index element={<Navigate to='family' />} /> {/** '/' --> '/family' */}
+          <Route index element={<Navigate to='family' />} />{' '}
+          {/** '/' --> '/family' */}
           <Route path='family'>
             <Route
               index
