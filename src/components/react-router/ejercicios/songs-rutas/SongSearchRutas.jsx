@@ -5,6 +5,7 @@ import { Error404 } from '../../conceptos/pages/Error404'
 import Loader from '../../../crud-api/Loader'
 import SongDetailsRutas from './SongDetailsRutas'
 import SongFormRutas from './SongFormRutas'
+import SongTable from './SongTable'
 
 let mySongsInit = JSON.parse(localStorage.getItem('mySongs')) || []
 
@@ -41,13 +42,15 @@ const SongSearchRutas = () => {
 
   const handleSearch = (data) => setSearch(data)
 
-  /** GUARDAR CANCION */
+  /** GUARDAR CANCIÓN */
   const handleSaveSong = () => {
     alert('GUARDANDO CANCIÓN')
   }
 
-  /** ELIMINAR CANCION */
-  const handleDeleteSong = (id) => {}
+  /** ELIMINAR CANCIÓN */
+  const handleDeleteSong = (id) => {
+    alert(`ELIMINANDO CANCIÓN ${id}`)
+  }
 
   return (
     <div className='container border border-warning p-2'>
@@ -73,9 +76,10 @@ const SongSearchRutas = () => {
                     handleSearch={handleSearch}
                     handleSaveSong={handleSaveSong}
                   />
-                  <h2 className='text-center text-danger'>
-                    TABLA DE CANCIONES
-                  </h2>
+                  <SongTable
+                    mySongs={mySongs}
+                    handleDeleteSong={handleDeleteSong}
+                  />
                   {search && !loading && (
                     <SongDetailsRutas search={search} lyric={lyric} bio={bio} />
                   )}
