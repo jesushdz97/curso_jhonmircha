@@ -13,9 +13,9 @@ const trimObj = (obj) => {
   }
 }
 
-const SongFormRutas = ({ handleSearch, handleSaveSong }) => {
+const SongFormRutas = ({ handleSearch, handleSaveSong, setIsDisabled, isDisabled }) => {
   const [form, setForm] = useState(initialForm)
-  const [isDisabled, setIsDisabled] = useState(true)
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -36,7 +36,6 @@ const SongFormRutas = ({ handleSearch, handleSaveSong }) => {
     }
 
     handleSearch(form)
-    // handleReset()
     setForm(initialForm)
     setIsDisabled(false)
   }

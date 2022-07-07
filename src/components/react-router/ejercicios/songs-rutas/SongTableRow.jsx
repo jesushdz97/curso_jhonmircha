@@ -1,32 +1,37 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const SongTableRow = ({ key, el, handleDeleteSong }) => {
-  console.log(el)
+const SongTableRow = ({ id, el, handleDeleteSong }) => {
+  let { artist, song } = el.search
+  let { strArtistThumb } = el.bio.artists[0]
   let navigate = useNavigate()
 
   return (
-    <tr key={key}>
-      <th scope='row'> {key} </th>
+    <tr>
+      <th scope='row'> {id} </th>
       <td>
-        <img src='https://placeimg.com/40/40/animals' alt='' />
+        <img
+          src={strArtistThumb}
+          alt={artist}
+          style={{ width: 'auto', height: '40px' }}
+        />
       </td>
 
-      <td>Nombre del Artista</td>
-      <td>Nombre de la canción</td>
+      <td>{artist}</td>
+      <td>{song}</td>
 
       <td>
         <input
           type='button'
           value='Ver'
-          className='btn btn-sm btn-primary mx-1'
-          onClick={navigate(`canciones/${key}`)}
+          className='btn btn-sm btn-primary m-1'
+          onClick={() => navigate(`${id}`)}
         />
         <input
           type='button'
           value='Eliminar'
-          className='btn btn-sm btn-danger mx-1'
-          onClick={() => handleDeleteSong(key)}
+          className='btn btn-sm btn-danger m-1'
+          onClick={() => handleDeleteSong(id)}
         />
       </td>
     </tr>

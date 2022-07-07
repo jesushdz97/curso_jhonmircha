@@ -6,6 +6,7 @@ import Loader from '../../../crud-api/Loader'
 import SongDetailsRutas from './SongDetailsRutas'
 import SongFormRutas from './SongFormRutas'
 import SongTable from './SongTable'
+import SongPageRutas from './SongPageRutas'
 
 let mySongsInit = JSON.parse(localStorage.getItem('mySongs')) || []
 
@@ -15,6 +16,7 @@ const SongSearchRutas = () => {
   const [bio, setBio] = useState(null)
   const [loading, setLoading] = useState(null)
   const [mySongs, setMySongs] = useState(mySongsInit)
+  const [isDisabled, setIsDisabled] = useState(true) // AGREGAR CANCION
 
   useEffect(() => {
     if (search === null) return
@@ -44,12 +46,23 @@ const SongSearchRutas = () => {
 
   /** GUARDAR CANCIÓN */
   const handleSaveSong = () => {
-    alert('GUARDANDO CANCIÓN')
+    let currentSong = { search, bio, lyric }
+    let songs = [...mySongs, currentSong]
+    localStorage.setItem('mySongs', JSON.stringify(songs))
+    setMySongs(songs)
+    setSearch(null)
+    setIsDisabled(true)
   }
 
   /** ELIMINAR CANCIÓN */
   const handleDeleteSong = (id) => {
-    alert(`ELIMINANDO CANCIÓN ${id}`)
+    let isDelete = window.confirm(`DESEA ELIMINAR LA CANCION CON ID: ${id}`)
+    let songs = mySongs.filter((el, index) => index !== id)
+
+    if (isDelete) {
+      setMySongs(songs)
+      localStorage.setItem('mySongs', JSON.stringify(songs))
+    }
   }
 
   return (
@@ -75,6 +88,8 @@ const SongSearchRutas = () => {
                   <SongFormRutas
                     handleSearch={handleSearch}
                     handleSaveSong={handleSaveSong}
+                    isDisabled={isDisabled}
+                    setIsDisabled={setIsDisabled}
                   />
                   <SongTable
                     mySongs={mySongs}
@@ -87,14 +102,7 @@ const SongSearchRutas = () => {
               }
             />
 
-            <Route
-              path=':id'
-              element={
-                <>
-                  <h2> PAGINA DE CANCION </h2>
-                </>
-              }
-            />
+            <Route path=':id' element={<SongPageRutas mySongs={mySongs} />} />
 
             <Route path='*' element={<Error404 />} />
           </Route>

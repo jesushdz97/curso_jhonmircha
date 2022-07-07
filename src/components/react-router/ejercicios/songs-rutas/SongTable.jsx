@@ -21,6 +21,7 @@ const SongTable = ({ mySongs, handleDeleteSong }) => {
             mySongs.map((el, index) => (
               <SongTableRow
                 key={index}
+                id={index}
                 el={el}
                 handleDeleteSong={handleDeleteSong}
               />

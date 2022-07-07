@@ -4,7 +4,7 @@ import SongLyricsRutas from './SongLyricsRutas'
 import Message from '../../../crud-api/Message'
 
 const SongDetailsRutas = ({ search, lyric, bio }) => {
-  if (!lyric || !bio) return null
+  if (!lyric || !bio) return
   return (
     <div className='container text-center border border-warning p-1 mt-1'>
       <h4 className='text-uppercase'>Detalle de Canciones</h4>

@@ -16,9 +16,9 @@ const App = () => {
         Documentación
       </a>
       <hr />
-      {/* <CrudApiRutas /> */}
+      <CrudApiRutas /> <hr />
       <SongSearchRutas /> <hr />
-      {/* <Conceptos /> */}
+      <Conceptos />
     </div>
   )
 }
