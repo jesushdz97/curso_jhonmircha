@@ -1,24 +1,13 @@
 import React from 'react'
+import Memo from './components/memorizaciones/React.memo/Memo'
 import './App.css'
-import CrudApiRutas from './components/react-router/ejercicios/crud-api-rutas/CrudApiRutas'
-import Conceptos from './components/react-router/conceptos/Conceptos'
-import SearchSongs from './components/songs/SearchSongs'
-import SongSearchRutas from './components/react-router/ejercicios/songs-rutas/SongSearchRutas'
 
 const App = () => {
   return (
-    <div className='container'>
-      <h1> React Router </h1>
-      <a
-        href='https://reactrouter.com/web/guides/quick-start'
-        target={'_blank'}
-        rel='noreferrer'>
-        Documentación
-      </a>
+    <div className='container text-center border-top border-start border-end p-2'>
+      <h1 className='text-center text-uppercase'>Memorización en React</h1>
       <hr />
-      <CrudApiRutas /> <hr />
-      <SongSearchRutas /> <hr />
-      <Conceptos />
+      <Memo />
     </div>
   )
 }
