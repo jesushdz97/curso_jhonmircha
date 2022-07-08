@@ -1,5 +1,5 @@
 import React from 'react'
-import Memo from './components/memorizaciones/React.memo/Memo'
+import Memo from './components/memorizaciones/Memo'
 import './App.css'
 
 const App = () => {
