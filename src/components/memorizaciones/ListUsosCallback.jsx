@@ -23,6 +23,8 @@ const ListUsosCallback = () => {
           Úsalo siempre que se pase una función como parámetro de un efecto.
         </li>
       </ul>
+      <br />
+      <br />
     </>
   )
 }

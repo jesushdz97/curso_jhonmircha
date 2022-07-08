@@ -1,10 +1,25 @@
-import React, { memo } from 'react'
+import React, { memo, useMemo } from 'react'
 
 const CounterChild = ({
   counter: dadCounter,
   add: dadAdd,
   subtract: dadSubtract,
 }) => {
+  /** ESTRUCTURA REALENTIZANTE */
+  /* let superNum = 0
+
+  // for (let i = 0; i < 1000000000; i++) {
+  //   superNum++
+  // } */
+
+  const superNum = useMemo(() => {
+    let superNum = 0
+    for (let i = 0; i < 1000000000; i++) {
+      superNum++
+    }
+    return superNum
+  }, [])
+
   console.log('Hijo contador se renderiza')
 
   return (
@@ -19,8 +34,16 @@ const CounterChild = ({
           -
         </button>
       </nav>
+      <h6>SuperNum: {superNum}</h6>
     </div>
   )
 }
 
 export default memo(CounterChild)
+
+/**
+ * usaCallback() -> Memoriza una función.
+ * useMemo() -> Memoriza el resultado de una función (necesita return).
+ *
+ * Se habla mucho de << Computed Property >>
+ */ 

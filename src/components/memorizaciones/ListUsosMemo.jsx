@@ -29,6 +29,8 @@ const ListUsos = () => {
           <li>Salen alerta de rendimiento en consola</li>
         </ul>
       </ul>
+      <br />
+      <br />
     </>
   )
 }
