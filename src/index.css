@@ -25,3 +25,8 @@ a.active {
   font-weight: bold;
   color: red;
 }
+
+.dark {
+  background-color: #fff;
+  filter: invert(1);
+}
