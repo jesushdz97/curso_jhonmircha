@@ -1,15 +1,15 @@
 const translation = {
   es: {
-    headerTitle: 'Mi aplicacion SIN Context Api',
+    headerTitle: 'Mi aplicación SIN Context Api',
     headerSubtitle: 'Mi Cabecera',
     headerLight: 'Claro',
     headerDark: 'Oscuro',
-    buttonLogin: 'Iniciar Sesion',
-    buttonLogout: 'Cerrar Sesion',
+    buttonLogin: 'Iniciar Sesión',
+    buttonLogout: 'Cerrar Sesión',
     mainWelcome: 'Bienvenido',
     mainHello: 'Hola usuario',
     mainContent: 'Mi contenido principal',
-    footerTitle: 'Mi pie de pagina',
+    footerTitle: 'Mi pie de página',
     selectLabel: 'Idioma',
   },
   en: {
@@ -19,7 +19,7 @@ const translation = {
     headerDark: 'Dark',
     buttonLogin: 'Login',
     buttonLogout: 'Close Session',
-    mainWelcome: 'Welcome',
+    mainWelcome: 'Welcome Guest',
     mainHello: 'Hello user',
     mainContent: 'My main content',
     footerTitle: 'My footer',
