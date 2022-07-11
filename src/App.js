@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
-import MyPage from './components/clase-context/MyPage'
+import MyPage from './components/clase-context/no-context/MyPage'
+import MyPageContext from './components/clase-context/with-context/MyPageContext'
 
 const App = () => {
   return (
@@ -19,7 +20,18 @@ const App = () => {
         </p>
       </section>
 
-      <MyPage />
+      <div className='container'>
+        <div className='row'>
+          <div className='col'>
+            <MyPageContext />
+          </div>
+          <div className='col'>
+            <MyPage />
+          </div>
+        </div>
+      </div>
+      {/* <MyPageContext />
+      <MyPage /> */}
     </div>
   )
 }

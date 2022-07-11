@@ -1,6 +1,7 @@
 const translation = {
   es: {
     headerTitle: 'Mi aplicación SIN Context Api',
+    headerTitleContext: 'Mi aplicación CON Context Api',
     headerSubtitle: 'Mi Cabecera',
     headerLight: 'Claro',
     headerDark: 'Oscuro',
@@ -14,6 +15,7 @@ const translation = {
   },
   en: {
     headerTitle: 'My application WITHOUT Context Api',
+    headerTitleContext: 'Mi aplicación WITH Context Api',
     headerSubtitle: 'My Header',
     headerLight: 'Light',
     headerDark: 'Dark',

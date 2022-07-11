@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Footer from './Footer'
 import Header from './Header'
 import Main from './Main'
-import translation from './translations'
+import translation from '../translations'
 
 const MyPage = () => {
   const [theme, setTheme] = useState('light')
@@ -21,7 +21,7 @@ const MyPage = () => {
   const handleAuth = () => setAuth(!auth)
 
   return (
-    <div>
+    <div className='border p-3'>
       <Header
         theme={theme}
         texts={texts}
