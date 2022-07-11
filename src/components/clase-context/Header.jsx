@@ -1,19 +1,33 @@
 import React from 'react'
 
-const Header = ({ theme, handleTheme }) => {
+const Header = ({ theme, texts, handleTheme, handleLanguage }) => {
+  let {
+    headerTitle,
+    headerSubtitle,
+    selectLabel,
+    headerLight,
+    headerDark,
+    buttonLogin,
+  } = texts
+
   return (
     <header className={`p-1 my-3 ${theme}`}>
       <section className='text-center'>
-        <h3> Mí Aplicación sin ContextAPI</h3>
+        <h3>{headerTitle}</h3>
+        <h4>{headerSubtitle}</h4>
       </section>
 
       <div className='form-floating mb-2'>
-        <select name='language' className='form-select' id='language'>
+        <select
+          name='language'
+          className='form-select'
+          id='language'
+          onChange={handleLanguage}>
           <option value='es'>ES</option>
           <option value='en'>EN</option>
         </select>
         <label htmlFor='language' className='form-input'>
-          Idiomas
+          {selectLabel}
         </label>
       </div>
 
@@ -27,7 +41,7 @@ const Header = ({ theme, handleTheme }) => {
           value='light'
         />
         <label className='form-check-label' htmlFor='light'>
-          Claro
+          {headerLight}
         </label>
       </div>
 
@@ -41,13 +55,13 @@ const Header = ({ theme, handleTheme }) => {
           value='dark'
         />
         <label className='form-check-label' htmlFor='dark'>
-          Oscuro
+          {headerDark}
         </label>
       </div>
 
       <div className='text-center m-1'>
         <button className='btn btn-small btn-outline-dark'>
-          Iniciar Sesión
+          {buttonLogin}
         </button>
       </div>
     </header>
