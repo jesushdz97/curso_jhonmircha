@@ -2,6 +2,8 @@ import React from 'react'
 import './App.css'
 import MyPage from './components/clase-context/no-context/MyPage'
 import MyPageContext from './components/clase-context/with-context/MyPageContext'
+import CrudApi from './components/clase-context/ejercicios/crud-api-context/CrudApi'
+import { CrudContextProvider } from './context/crudContext'
 
 const App = () => {
   return (
@@ -19,6 +21,11 @@ const App = () => {
           </a>
         </p>
       </section>
+
+      <CrudContextProvider>
+        <CrudApi />
+      </CrudContextProvider>
+      <hr />
 
       <div className='container'>
         <div className='row'>
