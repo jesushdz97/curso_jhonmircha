@@ -1,12 +1,14 @@
 import React, { useContext } from 'react'
+import AuthContext from '../../../context/AuthContext'
 import LanguageContext from '../../../context/LanguageContext'
 import ThemeContext from '../../../context/ThemeContext'
 
-const MainContext = ({ auth }) => {
+const MainContext = () => {
   const { texts } = useContext(LanguageContext)
-  let { mainWelcome, mainHello, mainContent } = texts
-
   const { theme } = useContext(ThemeContext)
+  const { auth } = useContext(AuthContext)
+
+  let { mainWelcome, mainHello, mainContent } = texts
 
   return (
     <main className={`text-center p-1 ${theme}`}>

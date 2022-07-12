@@ -4,20 +4,19 @@ import MainContext from './MainContext'
 import FooterContext from './FooterContext'
 import { ThemeProvider } from '../../../context/ThemeContext'
 import { LanguageProvider } from '../../../context/LanguageContext'
+import { AuthProvider } from '../../../context/AuthContext'
 
 const MyPage = () => {
-  const [auth, setAuth] = useState(null)
-
-  const handleAuth = () => setAuth(!auth)
-
   return (
     <div className='border p-3'>
       <ThemeProvider>
         <LanguageProvider>
-          <HeaderContext auth={auth} handleAuth={handleAuth} />
-          <hr />
-          <MainContext auth={auth} /> <hr />
-          <FooterContext />
+          <AuthProvider>
+            <HeaderContext />
+            <hr />
+            <MainContext /> <hr />
+            <FooterContext />
+          </AuthProvider>
         </LanguageProvider>
       </ThemeProvider>
     </div>

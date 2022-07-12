@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className='container border p-2'>
       <section className='text-center'>
-        <h1> React ContextAPI (SIN USO) </h1>
+        <h1> React ContextAPI </h1>
         <hr />
         <p>
           <a
