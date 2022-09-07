@@ -1,51 +1,29 @@
 import React, { useReducer } from 'react'
+import {
+  contadorReducer,
+  contadorInitialState,
+  contadorInit,
+} from '../../reducers/contador.reducer'
+import { TYPES } from '../../actions/contador.actions'
 
-const TYPES = {
-  INCREMENT: 'INCREMENT',
-  DECREMENT: 'DECREMENT',
-  RESET: 'RESET',
-  INC5: 'INC5',
-  DEC5: 'DEC5',
-}
-
-const initialState = { count: 0 }
-
-const init = (initialState) => {
-  return { count: initialState.count + 1997 }
-}
-
-const reducer = (state, action) => {
-  const { type, payload } = action
-
-  switch (type) {
-    case TYPES.INCREMENT:
-      return { count: state.count + payload }
-    case TYPES.DECREMENT:
-      return { count: state.count - payload }
-    case TYPES.INC5:
-      return { count: state.count + payload }
-    case TYPES.DEC5:
-      return { count: state.count - payload }
-    case TYPES.RESET:
-      return initialState
-    default:
-      return state
-  }
-}
-
-const Contador = () => {
-  const [state, dispatch] = useReducer(reducer, initialState, init)
+const ContadorMejorador = () => {
+  const [state, dispatch] = useReducer(
+    contadorReducer,
+    contadorInitialState,
+    contadorInit,
+  )
 
   const add = () => dispatch({ type: TYPES.INCREMENT, payload: 1 })
   const dec = () => dispatch({ type: TYPES.DECREMENT, payload: 1 })
-  const reset = () => dispatch({ type: TYPES.RESET, payload: initialState })
+  const reset = () =>
+    dispatch({ type: TYPES.RESET, payload: contadorInitialState })
 
   const add5 = () => dispatch({ type: TYPES.INCREMENT, payload: 5 })
   const dec5 = () => dispatch({ type: TYPES.DEC5, payload: 5 })
 
   return (
     <>
-      <h4 className='text-center'>Contador</h4>
+      <h4 className='text-center'>Contador Mejorador Reducer</h4>
       <nav className='d-flex justify-content-center py-3'>
         <button className='btn btn-primary mx-1 px-5' onClick={add}>
           +
@@ -75,4 +53,4 @@ const Contador = () => {
   )
 }
 
-export default Contador
+export default ContadorMejorador
