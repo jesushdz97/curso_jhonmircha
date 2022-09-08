@@ -23,7 +23,7 @@ const ContadorMejorador = () => {
 
   return (
     <>
-      <h4 className='text-center'>Contador Mejorador Reducer</h4>
+      <h4>Contador Mejorador Reducer</h4>
       <nav className='d-flex justify-content-center py-3'>
         <button className='btn btn-primary mx-1 px-5' onClick={add}>
           +

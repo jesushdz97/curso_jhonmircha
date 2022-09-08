@@ -1,12 +1,13 @@
-import React from 'react'
-import Contador from './components/reducer/Contador'
-import ContadorMejorador from './components/reducer/ContadorMejorado'
+import { ShoppingCart } from './components/clase-de-reducer'
+import { Contador } from './components/clase-de-reducer'
+import { ContadorMejorado } from './components/clase-de-reducer'
 
 const App = () => {
   return (
-    <div className='container-fluid'>
+    <div className='container-fluid text-center'>
       <h1 className='text-center'> useReducer </h1> <hr />
-      <ContadorMejorador /> <hr />
+      <ShoppingCart /> <hr />
+      <ContadorMejorado /> <hr />
       <Contador /> <hr />
     </div>
   )
