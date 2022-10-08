@@ -1,7 +1,14 @@
-import React from 'react'
+import { Modal } from './components'
+import Loader from './components/Loader'
+import { CrudApiContextProvider } from './context'
+import { CrudApi } from './page'
 
 const App = () => {
-  return <div>App</div>
+  return (
+    <CrudApiContextProvider>
+      <CrudApi />
+      <Loader />
+    </CrudApiContextProvider>
+  )
 }
-
 export default App
