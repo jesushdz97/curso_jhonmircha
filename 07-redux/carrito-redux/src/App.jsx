@@ -1,6 +1,7 @@
 import TeoriaRedux from '@/components/TeoriaRedux'
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
+import ShoppingCart from './components/ShoppingCart'
 import { CounterRedux } from './components/CounterRedux'
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <hr />
       <CounterRedux />
       <hr />
+      <ShoppingCart />
     </div>
   )
 }

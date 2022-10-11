@@ -7,8 +7,8 @@ export const CounterRedux = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className='py-4 font-extralight'>
-      <h1 className='text-6xl mb-10'>Contador Redux</h1>
+    <div className='p-4 font-extralight'>
+      <h1 className='text-6xl font-medium mb-10'>Contador Redux</h1>
       <div className='flex justify-center gap-4'>
         <button className='btn bg-blue-700' onClick={() => dispatch(add(5))}>
           +5
