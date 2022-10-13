@@ -1,10 +1,17 @@
 {
   "people": [
     {
+      "id": 1,
       "name": "Jesús",
       "lastname": "Hernández",
       "age": 25,
       "sex": "Male"
+    }, {
+      "id": 2,
+      "name": "Maria",
+      "lastname": "Ortega",
+      "age": 22,
+      "sex": "Female"
     }
   ]
 }

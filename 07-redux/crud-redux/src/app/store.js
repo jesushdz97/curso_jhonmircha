@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
-import authSlice from '@/features/auth/authSlice'
 import { useSelector } from 'react-redux'
+import { peopleSlice, authSlice } from '@/features'
 
 const store = configureStore({
   reducer: {
     auth: authSlice,
+    people: peopleSlice,
   },
 })
 
 /** getStates */
 export const useAuthState = () => useSelector((store) => store.auth)
+export const usePeopleState = () => useSelector((state) => state.people)
 
 export default store
