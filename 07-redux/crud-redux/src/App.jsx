@@ -12,7 +12,7 @@ const App = () => {
       <Route path={PEOPLE} element={<PrivateRoutes />}>
         <Route index element={<People />} />
         <Route path={CREATE} element={<PeopleForm />} />
-        <Route path={EDIT} element={<>HOLA</>} />
+        <Route path={EDIT} element={<PeopleForm />} />
       </Route>
 
       <Route element={<PublicRoutes />}>
