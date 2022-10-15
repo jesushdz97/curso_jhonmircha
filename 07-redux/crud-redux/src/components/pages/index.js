@@ -1,2 +1,2 @@
-export { default as Login } from './Login';
-export { default as People } from './People';
+export { default as LoginPage } from './LoginPage';
+export { default as PeoplePage } from './PeoplePage';

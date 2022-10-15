@@ -1,7 +1,7 @@
 import { toogleLogin as login } from '@/features/auth/authSlice'
 import { useDispatch } from 'react-redux'
 
-const Login = () => {
+const LoginPage = () => {
   const dispatch = useDispatch()
   return (
     <div className='d-flex justify-content-center align-items-center min-vh-100 bg-primary'>
@@ -15,4 +15,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage

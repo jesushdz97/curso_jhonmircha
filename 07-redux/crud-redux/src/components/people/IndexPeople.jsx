@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { readAllPeople } from '@/features/people/peopleSlice'
 import useFetch from '@/hooks/useFetch'
 
-const People = () => {
+const IndexPeople = () => {
   const dispatch = useDispatch()
 
   const { data, error } = useFetch(URL, readAllPeople)
@@ -28,4 +28,4 @@ const CreateButton = () => (
   </div>
 )
 
-export default People
+export default IndexPeople
