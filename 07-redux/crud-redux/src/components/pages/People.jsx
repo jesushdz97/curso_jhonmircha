@@ -24,9 +24,7 @@ const People = () => {
 
 const CreateButton = () => (
   <div className='text-end mb-3'>
-    <Link to={CREATE} className='btn btn-primary'>
-      Crear Persona
-    </Link>
+    <button variant='primary'>Launch demo modal</button>
   </div>
 )
 
