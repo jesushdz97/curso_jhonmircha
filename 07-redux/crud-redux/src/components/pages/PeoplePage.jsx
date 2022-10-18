@@ -1,6 +1,5 @@
-import React from 'react'
-import { CREATE, EDIT, PEOPLE, ROOT } from '@/routes'
-import { Route, Routes } from 'react-router-dom'
+import { CREATE, EDIT } from '@/routes'
+import { Route } from 'react-router-dom'
 import { IndexPeople, PeopleForm } from '../people'
 import RouteWithNotFound from '@/helpers/RouteWithNotFound'
 

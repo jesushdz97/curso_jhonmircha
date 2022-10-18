@@ -5,6 +5,7 @@ import { PeopleTable, PeopleTemplate } from '../people'
 import { Alert } from '..'
 import { useDispatch } from 'react-redux'
 import { readAllPeople } from '@/features/people/peopleSlice'
+import { Button } from 'react-bootstrap'
 import useFetch from '@/hooks/useFetch'
 
 const IndexPeople = () => {
@@ -15,7 +16,7 @@ const IndexPeople = () => {
   return (
     <PeopleTemplate>
       <div className='container mt-5'>
-        <CreateButton />
+        {!error && <CreateButton />}
         {!error ? <PeopleTable /> : <Alert serverError={error} />}
       </div>
     </PeopleTemplate>
@@ -23,9 +24,11 @@ const IndexPeople = () => {
 }
 
 const CreateButton = () => (
-  <div className='text-end mb-3'>
-    <button variant='primary'>Launch demo modal</button>
-  </div>
+  <Link to={CREATE}>
+    <Button variant='primary' className='mb-4'>
+      Crear Registro
+    </Button>
+  </Link>
 )
 
 export default IndexPeople

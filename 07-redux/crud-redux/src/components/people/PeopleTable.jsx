@@ -1,13 +1,15 @@
 import { usePeopleState } from '@/app/store'
+import { Table } from 'react-bootstrap'
 import { PeopleRow } from '.'
 
 const PeopleTable = () => {
   let people = usePeopleState()
+  
 
   return (
     people && (
-      <table className='table table-striped table-hover text-center'>
-        <thead>
+      <Table striped table-hover className='text-center'>
+        <thead className='bg-primary text-white'>
           <tr>
             <th>Nombre</th>
             <th>Apellido</th>
@@ -21,7 +23,7 @@ const PeopleTable = () => {
             <PeopleRow key={person.id} data={person} />
           ))}
         </tbody>
-      </table>
+      </Table>
     )
   )
 }

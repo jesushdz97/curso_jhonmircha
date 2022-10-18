@@ -8,4 +8,5 @@ const PeopleTemplate = ({ children }) => {
     </>
   )
 }
+
 export default PeopleTemplate
