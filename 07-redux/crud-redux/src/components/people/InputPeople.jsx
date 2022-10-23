@@ -1,13 +1,13 @@
 import { Col, Form } from 'react-bootstrap'
 
-const InputPeople = ({ type, label, name, handleChange, reference }) => {
+const InputPeople = ({ type, label, name, handleChange, value }) => {
   return (
     <Col>
       <Form.Floating>
         <Form.Control
           type={type}
           name={name}
-          ref={reference}
+          value={value}
           onChange={handleChange}
         />
         <Form.Label> {label} </Form.Label>

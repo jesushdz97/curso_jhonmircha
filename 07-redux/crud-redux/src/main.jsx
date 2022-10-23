@@ -4,6 +4,7 @@ import App from './App'
 import store from './app/store'
 import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
+import { MyModal } from './components'
 import './index.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <HashRouter>
       <Provider store={store}>
         <App />
+        <MyModal />
       </Provider>
     </HashRouter>
   </React.StrictMode>,

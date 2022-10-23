@@ -1,10 +1,15 @@
 import { URL } from '@/env'
 
-const destroy = async (id) => {
-  const options = { method: 'DELETE' }
-  const response = await fetch(`${URL}/${id}`, options)
-  const data = await response.json()
-  console.log(data)
-}
+const options = (method = '', data) => ({
+  method,
+  headers: { 'content-type': 'application/json' },
+  body: JSON.stringify(data),
+})
 
-export { destroy }
+const create = async (data) => await fetch(URL, options('POST', data))
+
+const update = async (data) => await fetch(`${URL}/${data.id}`, options('PUT', data))
+
+const destroy = async (id) => await fetch(`${URL}/${id}`, { method: 'DELETE' })
+
+export { destroy, create, update }

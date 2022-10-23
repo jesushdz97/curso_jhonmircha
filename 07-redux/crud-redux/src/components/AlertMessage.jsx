@@ -1,4 +1,6 @@
-const Alert = ({ serverError }) => {
+import { Alert } from 'react-bootstrap'
+
+const AlertMessage = ({ serverError }) => {
   let error = serverError.message
 
   if (serverError.status) {
@@ -7,9 +9,10 @@ const Alert = ({ serverError }) => {
   }
 
   return (
-    <div className='alert alert-danger' role='alert'>
+    <Alert role={'alert'} variant='danger'>
       {error}
-    </div>
+    </Alert>
   )
 }
-export default Alert
+
+export default AlertMessage

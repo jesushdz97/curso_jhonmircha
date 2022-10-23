@@ -1,6 +1,10 @@
+import { PEOPLE } from '@/routes'
+import { usePeopleState } from '@/app/store'
 import { useForm } from '@/hooks'
+import { create, update } from '@/services/peopleService'
 import { useEffect } from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { PeopleTemplate } from '.'
 import InputPeople from './InputPeople'
 
@@ -16,21 +20,34 @@ const initialForm = {
   sex: '',
 }
 
+const doFullname = (name, lastname) => `${name} ${lastname}`.toUpperCase()
+
 const PeopleForm = () => {
-  const { form, resetForm, handleChange } = useForm(initialForm)
+  let peopleState = usePeopleState()
+  let dataToEdit = peopleState.dataToEdit
+  const navigate = useNavigate()
 
-  const edit = true
-  const person = 'Jesus Hernandez'
+  const { form, setForm, resetForm, handleChange } = useForm(initialForm)
 
-  const handleSubmit = () => {}
+  useEffect(() => {
+    dataToEdit ? setForm(dataToEdit) : resetForm()
+  }, [dataToEdit])
 
-  useEffect(() => {}, [])
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    dataToEdit ? update(form) : create(form)
+    navigate(`/${PEOPLE}`)
+  }
+
+  let fullname = doFullname(dataToEdit?.name, dataToEdit?.lastname) || null
 
   return (
     <PeopleTemplate>
       <Container className={styles.flexStyle}>
-        <h1 className='fw-lighter fs-1 mb-3'> TEXTO </h1>
-        <form onSubmit={() => console.log('algo')}>
+        <h1 className='fw-lighter fs-1 mb-3'>
+          {dataToEdit ? `EDITANDO A: ${fullname}` : 'FORMULARIO DE REGISTRO'}
+        </h1>
+        <form onSubmit={handleSubmit}>
           <Row xs={1} md={2} className='g-2 mb-3'>
             <InputPeople
               type='text'
@@ -62,7 +79,7 @@ const PeopleForm = () => {
             />
           </Row>
           <Button size='lg' type='submit'>
-            {edit ? 'Editar' : 'Registrar'}
+            {dataToEdit ? 'Editar' : 'Registrar'}
           </Button>
         </form>
       </Container>

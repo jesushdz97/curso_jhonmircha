@@ -5,13 +5,28 @@
       "name": "Jesús",
       "lastname": "Hernández",
       "age": 25,
-      "sex": "Male"
-    }, {
+      "sex": "Masculino"
+    },
+    {
       "id": 2,
       "name": "Maria",
       "lastname": "Ortega",
       "age": 22,
-      "sex": "Female"
+      "sex": "Femenino"
+    },
+    {
+      "name": "Juan",
+      "lastname": "Infante",
+      "age": "13",
+      "sex": "Masculino",
+      "id": 3
+    },
+    {
+      "name": "Angela",
+      "lastname": "Hernandez",
+      "age": "22",
+      "sex": "Femenino",
+      "id": 5
     }
   ]
 }

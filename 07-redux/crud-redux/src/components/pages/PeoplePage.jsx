@@ -8,7 +8,7 @@ const PeoplePage = () => {
     <RouteWithNotFound>
       <Route index element={<IndexPeople />} />
       <Route path={CREATE} element={<PeopleForm />} />
-      <Route path={EDIT} element={<PeopleForm />} />
+      <Route path={`${EDIT}/:id`} element={<PeopleForm />} />
     </RouteWithNotFound>
   )
 }

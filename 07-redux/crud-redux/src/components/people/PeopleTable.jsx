@@ -3,12 +3,12 @@ import { Table } from 'react-bootstrap'
 import { PeopleRow } from '.'
 
 const PeopleTable = () => {
-  let people = usePeopleState()
-  
+  let state = usePeopleState()
+  let people = state.people
 
   return (
     people && (
-      <Table striped table-hover className='text-center'>
+      <Table striped hover className='text-center'>
         <thead className='bg-primary text-white'>
           <tr>
             <th>Nombre</th>

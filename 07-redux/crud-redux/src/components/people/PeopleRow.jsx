@@ -1,7 +1,9 @@
-import { deletePerson } from '@/features/people/peopleSlice'
+import { deletePerson, setToEdit } from '@/features/people/peopleSlice'
+import { EDIT } from '@/routes'
 import { destroy } from '@/services/peopleService'
 import { Button } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const PeopleRow = ({ data }) => {
   const dispatch = useDispatch()
@@ -13,9 +15,10 @@ const PeopleRow = ({ data }) => {
     dispatch(deletePerson(id))
   }
 
-  const handleEdit = () => {
-    
-  }
+  const handleEdit = (data) => dispatch(setToEdit(data))
+
+  /** slug para no poner el id en el ruta del id */
+  const slugName = (data) => `${data.name}-${data.lastname}`.toLowerCase()
 
   return (
     <tr className='fw-light'>
@@ -25,9 +28,12 @@ const PeopleRow = ({ data }) => {
       <td>{sex}</td>
 
       <td className='d-flex flex-column flex-md-row justify-content-center align-items-center gap-1'>
-        <Button variant='warning' size='sm'>
-          Editar
-        </Button>
+        <Link to={`${EDIT}/${slugName(data)}`}>
+          <Button variant='warning' size='sm' onClick={() => handleEdit(data)}>
+            Editar
+          </Button>
+        </Link>
+
         <Button variant='danger' size='sm' onClick={() => handleDelete(id)}>
           Eliminar
         </Button>

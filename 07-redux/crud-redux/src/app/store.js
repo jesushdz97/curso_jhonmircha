@@ -11,6 +11,6 @@ const store = configureStore({
 
 /** getStates */
 export const useAuthState = () => useSelector((store) => store.auth)
-export const usePeopleState = () => useSelector((state) => state.people)
+export const usePeopleState = () => useSelector((store) => store.people)
 
 export default store

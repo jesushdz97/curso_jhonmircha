@@ -8,4 +8,4 @@ export const PEOPLE = 'people'
 
 /** CRUD */
 export const CREATE = 'create'
-export const EDIT = 'edit/:id'
+export const EDIT = 'edit'
