@@ -6,7 +6,9 @@ import { useEffect } from 'react'
 import { Button, Container, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { PeopleTemplate } from '.'
+import { openModal } from '@/features/modal/modalSlice'
 import InputPeople from './InputPeople'
+import { useDispatch } from 'react-redux'
 
 const styles = {
   height: { height: '25rem' },
@@ -23,19 +25,24 @@ const initialForm = {
 const doFullname = (name, lastname) => `${name} ${lastname}`.toUpperCase()
 
 const PeopleForm = () => {
-  let peopleState = usePeopleState()
-  let dataToEdit = peopleState.dataToEdit
-  const navigate = useNavigate()
-
   const { form, setForm, resetForm, handleChange } = useForm(initialForm)
+  const { dataToEdit } = usePeopleState()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleOpenModal = (message) => dispatch(openModal(message))
 
   useEffect(() => {
     dataToEdit ? setForm(dataToEdit) : resetForm()
   }, [dataToEdit])
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    dataToEdit ? update(form) : create(form)
+
+    dataToEdit
+      ? (await update(form)) && handleOpenModal('¡Actualizado con éxito!')
+      : (await create(form)) && handleOpenModal('!Registrado con éxito!')
+
     navigate(`/${PEOPLE}`)
   }
 

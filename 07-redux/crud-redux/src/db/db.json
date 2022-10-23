@@ -15,18 +15,11 @@
       "sex": "Femenino"
     },
     {
-      "name": "Juan",
-      "lastname": "Infante",
-      "age": "13",
-      "sex": "Masculino",
-      "id": 3
-    },
-    {
-      "name": "Angela",
-      "lastname": "Hernandez",
-      "age": "22",
+      "name": "Rosmeri",
+      "lastname": "Simanca",
+      "age": "47",
       "sex": "Femenino",
-      "id": 5
+      "id": 3
     }
   ]
 }
