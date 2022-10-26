@@ -1,52 +1,52 @@
-import { PEOPLE } from '@/routes'
-import { usePeopleState } from '@/app/store'
-import { useForm } from '@/hooks'
-import { create, update } from '@/services/peopleService'
-import { useEffect } from 'react'
-import { Button, Container, Row } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
-import { PeopleTemplate } from '.'
-import { openModal } from '@/features/modal/modalSlice'
-import InputPeople from './InputPeople'
-import { useDispatch } from 'react-redux'
+import { PEOPLE } from '@/routes';
+import { usePeopleState } from '@/app/store';
+import { useForm } from '@/hooks';
+import { create, update } from '@/services/peopleService';
+import { useEffect } from 'react';
+import { Button, Container, Row } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { PeopleTemplate } from '.';
+import { openModal } from '@/features/modal/modalSlice';
+import InputPeople from './InputPeople';
+import { useDispatch } from 'react-redux';
 
 const styles = {
   height: { height: '25rem' },
   flexStyle: 'd-flex flex-column align-items-center justify-content-center p-4',
-}
+};
 
 const initialForm = {
   name: '',
   lastname: '',
   age: '',
   sex: '',
-}
+};
 
-const doFullname = (name, lastname) => `${name} ${lastname}`.toUpperCase()
+const doFullname = (name, lastname) => `${name} ${lastname}`.toUpperCase();
 
 const PeopleForm = () => {
-  const { form, setForm, resetForm, handleChange } = useForm(initialForm)
-  const { dataToEdit } = usePeopleState()
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  const { form, setForm, resetForm, handleChange } = useForm(initialForm);
+  const { dataToEdit } = usePeopleState();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleOpenModal = (message) => dispatch(openModal(message))
+  const handleOpenModal = (message) => dispatch(openModal(message));
 
   useEffect(() => {
-    dataToEdit ? setForm(dataToEdit) : resetForm()
-  }, [dataToEdit])
+    dataToEdit ? setForm(dataToEdit) : resetForm();
+  }, [dataToEdit]);
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     dataToEdit
       ? (await update(form)) && handleOpenModal('¡Actualizado con éxito!')
-      : (await create(form)) && handleOpenModal('!Registrado con éxito!')
+      : (await create(form)) && handleOpenModal('!Registrado con éxito!');
 
-    navigate(`/${PEOPLE}`)
-  }
+    navigate(`/${PEOPLE}`);
+  };
 
-  let fullname = doFullname(dataToEdit?.name, dataToEdit?.lastname) || null
+  let fullname = doFullname(dataToEdit?.name, dataToEdit?.lastname) || null;
 
   return (
     <PeopleTemplate>
@@ -85,13 +85,18 @@ const PeopleForm = () => {
               value={form.sex}
             />
           </Row>
-          <Button size='lg' type='submit'>
-            {dataToEdit ? 'Editar' : 'Registrar'}
-          </Button>
+          <Container className='d-flex justify-content-between'>
+            <Button size='lg' type='submit'>
+              {dataToEdit ? 'Editar' : 'Registrar'}
+            </Button>
+            <Button size='lg' variant='warning' onClick={() => navigate(-1)}>
+              Volver
+            </Button>
+          </Container>
         </form>
       </Container>
     </PeopleTemplate>
-  )
-}
+  );
+};
 
-export default PeopleForm
+export default PeopleForm;

@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom'
 import { IndexPeople, PeopleForm } from '../people'
 import RouteWithNotFound from '@/helpers/RouteWithNotFound'
 
-const PeoplePage = () => {
+const PeopleRoutes = () => {
   return (
     <RouteWithNotFound>
       <Route index element={<IndexPeople />} />
@@ -13,4 +13,4 @@ const PeoplePage = () => {
   )
 }
 
-export default PeoplePage
+export default PeopleRoutes
